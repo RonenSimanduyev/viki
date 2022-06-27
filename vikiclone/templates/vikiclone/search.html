@@ -1,0 +1,11 @@
+{% extends 'main.html' %} {% block content %}
+<h2>{{entries.count}} Search Results</h2>
+<ul class="list-group list-group-flush">
+  {%for entry in entries %}
+  <li class="list-group-item">
+    <a href="#"><h5>{{entry.name}}</h5></a>
+    <small>{{entry.body|truncatechars:100}}</small>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

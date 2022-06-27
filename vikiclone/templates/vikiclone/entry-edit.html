@@ -1,0 +1,42 @@
+{% extends 'main.html' %} {% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      value="{{entry.name}}"
+      name="name"
+      placeholder="Name"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Image Url</label>
+    <input
+      type="text"
+      class="form-control"
+      value="{{entry.imageUrl}}"
+      name="imageUrl"
+      placeholder="Image Url"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Category</label>
+    <select class="form-select" name="category">
+      {% for category in categories %} {% if category == entry.category %}
+      <option value="{{category.id}}" selected>{{category.name}}</option>
+      {% else %}
+      <option value="{{category.id}}">{{category.name}}</option>
+      {% endif %} {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Body</label>
+    <textarea class="form-control" rows="3" name="body">
+{{entry.body}}</textarea
+    >
+  </div>
+  <input type="submit" value="עריכה" class="btn btn-link" />
+</form>
+{% endblock %}

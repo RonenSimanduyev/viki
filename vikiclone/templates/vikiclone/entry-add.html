@@ -1,0 +1,38 @@
+{% extends 'main.html' %} {% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id=""
+      name="name"
+      placeholder="Name"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Image Url</label>
+    <input
+      type="text"
+      class="form-control"
+      id=""
+      name="imageUrl"
+      placeholder="Image Url"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Category</label>
+    <select class="form-select" name="category">
+      {% for category in categories %}
+      <option value="{{category.id}}">{{category.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Body</label>
+    <textarea class="form-control" id="" name="body" rows="3"></textarea>
+  </div>
+  <input type="submit" value="הוספה" class="btn btn-link" />
+</form>
+{% endblock %}

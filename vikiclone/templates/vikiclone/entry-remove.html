@@ -1,0 +1,12 @@
+{% extends 'main.html' %} {% block content %}
+<div class="card text-white bg-danger mb-3">
+  <div class="card-header">Do you wish to remove {{entry.name}}?</div>
+  <div class="card-body">
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Yes" class="btn btn-danger" />
+      <a href="{% url 'home' %}" class="btn btn-danger">No</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

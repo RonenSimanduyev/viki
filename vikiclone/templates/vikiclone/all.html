@@ -1,0 +1,10 @@
+{% extends 'main.html' %} {% block content %} {% for category in categories %}
+<h2>{{category.name}}</h2>
+
+<ul>
+  {% for entry in category.entry_set.all %}
+  <li><a href="{% url 'one' entry.id %}">{{entry.name}}</a></li>
+  {% endfor %}
+</ul>
+
+{% endfor %} {% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'main.html' %} {% block content %}
+<style>
+  .header {
+    text-align: left;
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  .header span {
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+</style>
+<div class="header">
+  <h1>{{entry.name}}</h1>
+  <span>
+    <a href="{% url 'edit' entry.id %}">edit</a>
+    <a href="{% url 'remove' entry.id %}">delete</a>
+  </span>
+</div>
+<p>{{entry.body|linebreaks}}</p>
+<img src="{{entry.imageUrl}}" />
+{% endblock %}
